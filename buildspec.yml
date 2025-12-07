@@ -26,9 +26,8 @@ phases:
       - echo Pushing the Docker image...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      # ↓ ここは「ECSタスク定義のコンテナ名」と合わせる必要あり
-      # いったん api-container にしておき、後で ECS 側を確認して調整予定
-      - printf '[{"name":"api-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"cloudtech-reservation-api-task","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+
 
 artifacts:
   files:
